@@ -20,6 +20,7 @@ public class UserRgistration {
             System.out.println("not valid");
         }
     }
+    
     public void validlastname(){
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
@@ -51,12 +52,28 @@ public class UserRgistration {
             System.out.println(" email not valid");
         }
     }
-
+    public void validnumber()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
+        System.out.println("enter the  Mobile number");
+        String firstname=scanner.nextLine();
+        Matcher matcher= pattern.matcher(firstname);
+        if (matcher.hasMatch())
+        {
+            System.out.println("Mobile Number is valid");
+        }
+        else
+        {
+            System.out.println("Mobile Number is not valid");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("welcom to the User Registration");
         UserRgistration ob=new UserRgistration();
         ob.validfirstname();
         ob.validlastname();
-        ob.validfirstname();
+        ob.validemail();
+        ob.validnumber();
     }
 }
