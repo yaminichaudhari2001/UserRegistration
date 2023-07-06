@@ -35,11 +35,28 @@ public class UserRgistration {
             System.out.println(" lastname not valid");
         }
     }
+    public void validemail()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+        System.out.println("enter the email");
+        String firstname=scanner.nextLine();
+        Matcher matcher= pattern.matcher(firstname);
+        if (matcher.hasMatch())
+        {
+            System.out.println("email valid");
+        }
+        else
+        {
+            System.out.println(" email not valid");
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("welcom to the User Registration");
         UserRgistration ob=new UserRgistration();
         ob.validfirstname();
         ob.validlastname();
+        ob.validfirstname();
     }
 }
