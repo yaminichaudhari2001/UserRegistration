@@ -20,7 +20,7 @@ public class UserRgistration {
             System.out.println("not valid");
         }
     }
-    
+
     public void validlastname(){
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
@@ -68,6 +68,22 @@ public class UserRgistration {
             System.out.println("Mobile Number is not valid");
         }
     }
+    public void validpassword()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("^[a-z]{8,}$");
+        System.out.println("enter the  Password");
+        String firstname=scanner.nextLine();
+        Matcher matcher= pattern.matcher(firstname);
+        if (matcher.hasMatch())
+        {
+            System.out.println("Password is valid");
+        }
+        else
+        {
+            System.out.println("Password is not valid");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("welcom to the User Registration");
         UserRgistration ob=new UserRgistration();
@@ -75,5 +91,6 @@ public class UserRgistration {
         ob.validlastname();
         ob.validemail();
         ob.validnumber();
+        ob.validpassword();
     }
 }
