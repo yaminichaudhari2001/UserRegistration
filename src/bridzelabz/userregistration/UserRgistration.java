@@ -100,6 +100,22 @@ public class UserRgistration {
             System.out.println("Password is not valid,Should have at least 1 Upper Case");
         }
     }
+    public void validpasswordrule3()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9]{8,}$");
+        System.out.println("enter the  Password – Should have at least 1 numeric number in the password ");
+        String password3=scanner.nextLine();
+        Matcher matcher= pattern.matcher(password3);
+        if (matcher.hasMatch())
+        {
+            System.out.println("Password is valid");
+        }
+        else
+        {
+            System.out.println("Password is not valid, Should have at least 1 numeric number in the password");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("welcom to the User Registration");
         UserRgistration ob=new UserRgistration();
@@ -109,5 +125,6 @@ public class UserRgistration {
         ob.validnumber();
         ob.validpasswordrule1();
         ob.validpasswordrule2();
+        ob.validpasswordrule3();
     }
 }
