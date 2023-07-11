@@ -116,6 +116,22 @@ public class UserRgistration {
             System.out.println("Password is not valid, Should have at least 1 numeric number in the password");
         }
     }
+    public void validpasswordrule4()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>])[a-zA-Z0-9!@#&()–[{}]:;',?/*~$^+=<>].{8,}$");
+        System.out.println("enter the  Password – Has exactly Special Character");
+        String password4=scanner.nextLine();
+        Matcher matcher= pattern.matcher(password4);
+        if (matcher.hasMatch())
+        {
+            System.out.println("Password is valid");
+        }
+        else
+        {
+            System.out.println("Password is not valid,Has exactly Special Character ");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("welcom to the User Registration");
         UserRgistration ob=new UserRgistration();
@@ -126,5 +142,6 @@ public class UserRgistration {
         ob.validpasswordrule1();
         ob.validpasswordrule2();
         ob.validpasswordrule3();
+        ob.validpasswordrule4();
     }
 }
