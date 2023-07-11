@@ -25,8 +25,8 @@ public class UserRgistration {
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
         System.out.println("enter the lastname");
-        String firstname=scanner.nextLine();
-        Matcher matcher= pattern.matcher(firstname);
+        String lastname=scanner.nextLine();
+        Matcher matcher= pattern.matcher(lastname);
         if (matcher.hasMatch())
         {
             System.out.println("lastname valid");
@@ -41,8 +41,8 @@ public class UserRgistration {
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
         System.out.println("enter the email");
-        String firstname=scanner.nextLine();
-        Matcher matcher= pattern.matcher(firstname);
+        String email=scanner.nextLine();
+        Matcher matcher= pattern.matcher(email);
         if (matcher.hasMatch())
         {
             System.out.println("email valid");
@@ -57,8 +57,8 @@ public class UserRgistration {
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
         System.out.println("enter the  Mobile number");
-        String firstname=scanner.nextLine();
-        Matcher matcher= pattern.matcher(firstname);
+        String number=scanner.nextLine();
+        Matcher matcher= pattern.matcher(number);
         if (matcher.hasMatch())
         {
             System.out.println("Mobile Number is valid");
@@ -68,20 +68,36 @@ public class UserRgistration {
             System.out.println("Mobile Number is not valid");
         }
     }
-    public void validpassword()
+    public void validpasswordrule1()
     {
         Scanner scanner=new Scanner(System.in);
         Pattern pattern=Pattern.compile("^[a-z]{8,}$");
-        System.out.println("enter the  Password");
-        String firstname=scanner.nextLine();
-        Matcher matcher= pattern.matcher(firstname);
+        System.out.println("enter the  Password minimum 8 Characters");
+        String password1=scanner.nextLine();
+        Matcher matcher= pattern.matcher(password1);
         if (matcher.hasMatch())
         {
             System.out.println("Password is valid");
         }
         else
         {
-            System.out.println("Password is not valid");
+            System.out.println("Password is not valid,minimum 8 Characters");
+        }
+    }
+    public void validpasswordrule2()
+    {
+        Scanner scanner=new Scanner(System.in);
+        Pattern pattern=Pattern.compile("(?=.*[A-Z])[A-Za-z]{8,}$");
+        System.out.println("enter the  Password Should have at least 1 Upper Case");
+        String password2=scanner.nextLine();
+        Matcher matcher= pattern.matcher(password2);
+        if (matcher.hasMatch())
+        {
+            System.out.println("Password is valid");
+        }
+        else
+        {
+            System.out.println("Password is not valid,Should have at least 1 Upper Case");
         }
     }
     public static void main(String[] args) {
@@ -91,6 +107,7 @@ public class UserRgistration {
         ob.validlastname();
         ob.validemail();
         ob.validnumber();
-        ob.validpassword();
+        ob.validpasswordrule1();
+        ob.validpasswordrule2();
     }
 }
